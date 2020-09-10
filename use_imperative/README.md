@@ -1,8 +1,7 @@
 # useImperativeHandle e Refs
 
-Um dos seus casos de uso, é expor métodos de um componente filho, para o componente pai
+Um dos seus casos de uso, é expor métodos de um componente filho, para o componente pai 
 utilizando de Refs para que isso seja possível.
-
 Este é um pequeno trecho de código que exemplifica onde isto pode ser aplicado, no caso, foi
 utilizado para gerenciar uma janela modal.
 
