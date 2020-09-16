@@ -1,6 +1,6 @@
 import React from 'react';
 import { store, increment, decrement } from './store/config'
-import {  useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './global.css'
 
 function App() {
