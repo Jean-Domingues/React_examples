@@ -7,14 +7,14 @@ export default function SimpleSlider() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 4,
     slidesToScroll: 1,
   };
 
   return (
+    <div className="container">
     <div>
-      <h2> Single Item</h2>
-      <Slider {...settings}>
+      <Slider {...settings} >
         <div className="box">
           <h3>1</h3>
         </div>
@@ -34,6 +34,7 @@ export default function SimpleSlider() {
           <h3>6</h3>
         </div>
       </Slider>
+    </div>
     </div>
   );
 }
