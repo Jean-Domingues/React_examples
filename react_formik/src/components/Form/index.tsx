@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 export const SignupForm = () => {
@@ -22,21 +22,37 @@ export const SignupForm = () => {
         }, 400);
       }}
     >
-      <Form>
-        <label htmlFor="firstName">First Name</label>
-        <Field name="firstName" type="text" />
-        <ErrorMessage name="firstName" />
+      {props => ( // Função que será passada para o contexto do Formik
+        <form onSubmit={props.handleSubmit}>
+          <label htmlFor="firstName">First Name</label>
+          <input
+            id="firstName"
+            type="text"
+            {...props.getFieldProps('firstName')}
+          />
+          {props.touched.firstName && props.errors.firstName ? (
+            <div>{props.errors.firstName}</div>
+          ) : null}
 
-        <label htmlFor="lastName">Last Name</label>
-        <Field name="lastName" type="text" />
-        <ErrorMessage name="lastName" />
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            id="lastName"
+            type="text"
+            {...props.getFieldProps('lastName')}
+          />
+          {props.touched.lastName && props.errors.lastName ? (
+            <div>{props.errors.lastName}</div>
+          ) : null}
 
-        <label htmlFor="email">Email Address</label>
-        <Field name="email" type="email" />
-        <ErrorMessage name="email" />
+          <label htmlFor="email">Email Address</label>
+          <input id="email" type="email" {...props.getFieldProps('email')} />
+          {props.touched.email && props.errors.email ? (
+            <div>{props.errors.email}</div>
+          ) : null}
 
-        <button type="submit">Submit</button>
-      </Form>
+          <button type="submit">Submit</button>
+        </form>
+      )}
     </Formik>
   );
 };
