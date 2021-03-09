@@ -7,13 +7,13 @@ import styles from '../../style/Form.module.css';
 const validation = Yup.object({
   firstName: Yup.string()
     .max(15, 'O nome deve ter no máximo 15 caracteres')
-    .required('Campo Vazio'),
+    .required('O campo não pode ser vazio'),
   lastName: Yup.string()
     .max(20, 'O sobrenome deve ter no máximo 20 caracteres')
-    .required('Required'),
+    .required('O campo não pode ser vazio'),
   email: Yup.string()
     .email('Formato de email inválido')
-    .required('Required')
+    .required('O campo não pode ser vazio')
     .min(10, 'Email pequeno demais'),
 });
 
