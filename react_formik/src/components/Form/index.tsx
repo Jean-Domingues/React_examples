@@ -4,71 +4,80 @@ import * as Yup from 'yup';
 
 import styles from '../../style/Form.module.css';
 
+const validation = Yup.object({
+  firstName: Yup.string()
+    .max(15, 'O nome deve ter no máximo 15 caracteres')
+    .required('Campo Vazio'),
+  lastName: Yup.string()
+    .max(20, 'O sobrenome deve ter no máximo 20 caracteres')
+    .required('Required'),
+  email: Yup.string()
+    .email('Formato de email inválido')
+    .required('Required')
+    .min(10, 'Email pequeno demais'),
+});
+
 export const SignupForm = () => {
   return (
     <Formik
       initialValues={{ firstName: '', lastName: '', email: '' }}
-      validationSchema={Yup.object({
-        firstName: Yup.string()
-          .max(15, 'Must be 15 characters or less')
-          .required('Required'),
-        lastName: Yup.string()
-          .max(20, 'Must be 20 characters or less')
-          .required('Required'),
-        email: Yup.string().email('Invalid email address').required('Required'),
-      })}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+      validationSchema={validation}
+      onSubmit={(values) => {
+        console.log(values);
+
+        alert(JSON.stringify(values, null, 2));
       }}
     >
-      {(
-        props // Função que será passada para o contexto do Formik
-      ) => (
-        <form onSubmit={props.handleSubmit} className={styles.container}>
-          <label>First Name
-          <input
-            className={styles.inputForm}
-            id="firstName"
-            type="text"
-            {...props.getFieldProps('firstName')}
-          />
-          </label>
-          {props.touched.firstName && props.errors.firstName ? (
-            <div className={styles.errors}>{props.errors.firstName}</div>
-          ) : null}
+      {
+        // Função que será passada para o contexto do Formik
+        (props) => (
+          <form onSubmit={props.handleSubmit} className={styles.container}>
+            <label>
+              Nome
+              <input
+                className={styles.inputForm}
+                id="firstName"
+                type="text"
+                {...props.getFieldProps('firstName')}
+              />
+            </label>
 
-          <label>Last Name
-          <input
-            className={styles.inputForm}
-            id="lastName"
-            type="text"
-            {...props.getFieldProps('lastName')}
-          />
-          </label>
+            {props.touched.firstName && props.errors.firstName ? (
+              <div className={styles.errors}>{props.errors.firstName}</div>
+            ) : null}
 
-          {props.touched.lastName && props.errors.lastName ? (
-            <div className={styles.errors}>{props.errors.lastName}</div>
-          ) : null}
+            <label>
+              Sobrenome
+              <input
+                className={styles.inputForm}
+                id="lastName"
+                type="text"
+                {...props.getFieldProps('lastName')}
+              />
+            </label>
 
-          <label>Email Address
-          <input
-            className={styles.inputForm}
-            id="email"
-            type="email"
-            {...props.getFieldProps('email')}
-          />
-          </label>
-          
-          {props.touched.email && props.errors.email ? (
-            <div className={styles.errors}>{props.errors.email}</div>
-          ) : null}
+            {props.touched.lastName && props.errors.lastName ? (
+              <div className={styles.errors}>{props.errors.lastName}</div>
+            ) : null}
 
-          <button type="submit">Submit</button>
-        </form>
-      )}
+            <label>
+              Email
+              <input
+                className={styles.inputForm}
+                id="email"
+                type="email"
+                {...props.getFieldProps('email')}
+              />
+            </label>
+
+            {props.touched.email && props.errors.email ? (
+              <div className={styles.errors}>{props.errors.email}</div>
+            ) : null}
+
+            <button type="submit">Enviar</button>
+          </form>
+        )
+      }
     </Formik>
   );
 };
