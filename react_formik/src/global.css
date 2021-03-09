@@ -4,15 +4,19 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
-  height: 100%;
+html,
+body,
+#root {
+  height: 100vh;
 }
 
 body {
   background: rgb(109, 108, 108);
   color: #cecece;
 
+  height: 100%;
+
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
