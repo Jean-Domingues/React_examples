@@ -11,7 +11,8 @@ body,
 }
 
 body {
-  background: rgb(109, 108, 108);
+  font: sans-serif;
+  background: rgb(41, 41, 41);
   color: #cecece;
 
   height: 100%;

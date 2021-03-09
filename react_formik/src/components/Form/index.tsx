@@ -28,35 +28,40 @@ export const SignupForm = () => {
         props // Função que será passada para o contexto do Formik
       ) => (
         <form onSubmit={props.handleSubmit} className={styles.container}>
-          <label htmlFor="firstName">First Name</label>
+          <label>First Name
           <input
             className={styles.inputForm}
             id="firstName"
             type="text"
             {...props.getFieldProps('firstName')}
           />
+          </label>
           {props.touched.firstName && props.errors.firstName ? (
             <div className={styles.errors}>{props.errors.firstName}</div>
           ) : null}
 
-          <label htmlFor="lastName">Last Name</label>
+          <label>Last Name
           <input
             className={styles.inputForm}
             id="lastName"
             type="text"
             {...props.getFieldProps('lastName')}
           />
+          </label>
+
           {props.touched.lastName && props.errors.lastName ? (
             <div className={styles.errors}>{props.errors.lastName}</div>
           ) : null}
 
-          <label htmlFor="email">Email Address</label>
+          <label>Email Address
           <input
             className={styles.inputForm}
             id="email"
             type="email"
             {...props.getFieldProps('email')}
           />
+          </label>
+          
           {props.touched.email && props.errors.email ? (
             <div className={styles.errors}>{props.errors.email}</div>
           ) : null}
