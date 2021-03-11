@@ -1,11 +1,26 @@
 import React from 'react';
 
-function App() {
+import { connect } from 'react-redux'
+
+function App({ counter, increment }) {
   return (
     <div>
-      <h1>Teste</h1>
+      <h1>Contador: {counter}</h1>
+      <button onClick={increment}>+</button>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    counter: state.counter,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    increment: () => dispatch({ type: 'counter/incremented' })
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

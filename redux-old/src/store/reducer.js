@@ -3,6 +3,7 @@ const initialState = {
 }
 
 export const counterReducer = (state = initialState, action ) => {
+  console.log("io");
   switch (action.type) {
     case 'counter/incremented':
       return { ...state, counter: state.counter + 1 }
