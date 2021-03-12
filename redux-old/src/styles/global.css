@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+html, #root, body {
+  height: 100vh;
+}
+
+body {
+  background-color: rgb(65, 65, 65);
+}
+
+button { 
+  width: 40px;
+  font-size: 20px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}

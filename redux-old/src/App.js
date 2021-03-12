@@ -1,10 +1,13 @@
 import React from 'react';
 
-import { connect } from 'react-redux'
+import './styles/global.css'
 
+import { connect } from 'react-redux'
+import { DECREMENT, INCREMENT } from './store/actions'
+ 
 function App({ counter, increment, decrement }) {
   return (
-    <div>
+    <div className="container">
       <h1>Contador: {counter}</h1>
       <button onClick={increment}>+</button>
       <button onClick={decrement}>-</button>
@@ -20,8 +23,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    increment: () => dispatch({ type: 'counter/incremented' }),
-    decrement: () => dispatch({ type: 'counter/decremented'})
+    increment: () => dispatch(INCREMENT),
+    decrement: () => dispatch(DECREMENT)
   }
 }
 
