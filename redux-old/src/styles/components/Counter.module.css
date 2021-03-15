@@ -1,0 +1,11 @@
+.boxButton {
+  display: flex;
+  justify-content: space-between;
+}
+
+.boxButton button { 
+  width: 40px;
+  font-size: 20px;
+
+  flex: 1;
+}

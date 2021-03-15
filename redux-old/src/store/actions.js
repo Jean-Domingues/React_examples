@@ -1,3 +1,5 @@
+// Ações do nosso componente
+
 export const INCREMENT = {
   type: "counter/incremented",
 };

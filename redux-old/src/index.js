@@ -7,7 +7,7 @@ import store from './store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={store}> {/* Fornece o state da loja para todo o app */}
       <App />
     </Provider>
   </React.StrictMode>,
