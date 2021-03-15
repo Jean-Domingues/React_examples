@@ -3,7 +3,11 @@ const initialState = {
   counter: 0,
 }
 
-// Cria o reducer
+/**
+ * Reducer é uma função responsável por gerir o state da nossa loja
+ * ele recebe um initialState como parâmetro, e também a action que vai ser
+ * responsável por fazer a alteração no state
+ */
 export const counterReducer = (state = initialState, action ) => {
   switch (action.type) { 
     // verifica o type de cada action e dispara um novo valor para o state
