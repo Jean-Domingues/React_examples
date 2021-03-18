@@ -7,3 +7,7 @@ export const INCREMENT = {
 export const DECREMENT = { 
   type: "counter/decremented" 
 };
+
+export const ASYNC_REQUEST = {
+  type: "counter/async_request"
+}

@@ -1,7 +1,16 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 import { counterReducer } from './reducer'
 
-// Cria a nossa loja passando como parâmetro o nosso reducer
-const store = createStore(counterReducer)
+import mySaga from './sagas/index'
+
+const sagaMiddleware = createSagaMiddleware()
+
+const store = createStore(
+  counterReducer,
+  applyMiddleware(sagaMiddleware)
+)
+
+sagaMiddleware.run(mySaga)
 
 export default store;

@@ -15,6 +15,8 @@ export const counterReducer = (state = initialState, action ) => {
       return { ...state, counter: state.counter + 1 }
     case 'counter/decremented':
       return { ...state, counter: state.counter - 1 }
+    case 'counter/async_increment':
+      return { ...state, counter: action.value }
     default:
       return state
   }
