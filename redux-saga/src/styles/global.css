@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+html, #root, body {
+  height: 100vh;
+}
+
+body {
+  background-color: rgb(65, 65, 65);
+}
+
+.container {
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10%;
+
+  background-color: beige;
+}
