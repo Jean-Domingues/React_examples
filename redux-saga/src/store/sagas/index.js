@@ -8,7 +8,6 @@ function* fetchUser() { // TRATATIVA
 }
 
 function* mySaga() { // Função responsárvel por receber as actions e disparar as tratativas
-
   // vai pegar a nossa última chamada para a action, e dar uma tratativa
   yield takeLatest("counter/async_request", fetchUser);
 }
